@@ -37,8 +37,8 @@ const twoD = function(p) {
   p.mousePressed = function(){
     
     audio.stop()
-    audio.play()
     audio.reverseBuffer()
+    audio.play()
   }
 }
 

@@ -10,7 +10,7 @@ const twoD = function(p) {
     let timeToWait = 2000;
   
     p.preload = function() {
-      audio = p.loadSound("softSound2.mp3")
+      audio = p.loadSound("assets/softSound2.mp3")
       audio.playMode('restart');
       audio.setLoop(true);
     }
@@ -47,17 +47,20 @@ const twoD = function(p) {
   
       
   
-      if (p.millis() < timeClicked + timeToWait){
+      if (p.millis() <= timeClicked + timeToWait){
         //do something
         audio.rate(p.sin(p.frameCount * 0.01));
+      }
+      if (p.millis() <= timeClicked + timeToWait){
+        audio.rate();
       }
     }
   
    
   
     p.mousePressed = function(){
-      // audio.stop()
-      // audio.reverseBuffer()
+       audio.pause()
+       audio.reverseBuffer()
   
       audio.play();
   
@@ -82,7 +85,7 @@ const twoD = function(p) {
     // let mx = 0
     // let my = 0
     p.preload = function() {
-      softy = p.loadModel('softy3.obj')
+      softy = p.loadModel('assets/softy3.obj')
     }
     p.setup = function() {
       p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL)

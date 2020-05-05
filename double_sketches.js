@@ -3,7 +3,7 @@ const twoD = function(p) {
   let audio
 
   p.preload = function() {
-    audio = p.loadSound("softSound2.mp3")
+    audio = p.loadSound("assets/softSound2.mp3")
 
   }
   p.setup = function() {
@@ -51,7 +51,7 @@ const threeD = function(p) {
   // let mx = 0
   // let my = 0
   p.preload = function() {
-    softy = p.loadModel('softy3.obj')
+    softy = p.loadModel('assets/softy3.obj')
   }
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL)

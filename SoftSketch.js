@@ -87,7 +87,7 @@ const twoD = function(p) {
     // let mx = 0
     // let my = 0
     p.preload = function() {
-      softy = p.loadModel('assets/softy3.obj')
+      softy = p.loadModel('assets/softy4.obj')
     }
     p.setup = function() {
       p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL)

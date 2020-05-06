@@ -52,7 +52,7 @@ const twoD = function(p) {
         //do something
         audio.rate(p.sin(p.frameCount * 0.01));
       }
-      if (p.millis() <= timeClicked + timeToWait){
+      if (p.millis() >= timeClicked + timeToWait){
         audio.rate();
       }
     }

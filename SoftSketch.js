@@ -95,6 +95,7 @@ const twoD = function(p) {
     p.draw = function() {
       p.clear()
       p.translate(0, 0, -200)
+      p.scale(2.0, 2.0, 2.0);
       rotationAngle += ease(rotationAngle, rotationTarget, easing)
       p.rotateY(p.frameCount * spinAngle)
       

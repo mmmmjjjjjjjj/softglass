@@ -80,6 +80,7 @@ const twoD = function(p) {
   const threeD = function(p) {
     let softy
     let spinAngle = 0.002
+    let breathSize = 0.002
     let rotationAngle = 0
     let rotationTarget = 0
     let easing = 0.02
@@ -95,7 +96,10 @@ const twoD = function(p) {
     p.draw = function() {
       p.clear()
       p.translate(0, 0, -200)
-      p.scale(1.33, 1.33, p.frameCount * spinAngle);
+      // if ((p.frameCount * breathSize) >= 0.1){
+      //   breathSize == 0;
+      // }p.frameCount * breathSize
+      p.scale(1.33, 1.33, 1.33);
       rotationAngle += ease(rotationAngle, rotationTarget, easing)
       p.rotateY(p.frameCount * spinAngle)
       

@@ -30,6 +30,7 @@ const twoD = function(p) {
       p.CENTER;
       p.background((p.map(audio.currentTime(), 0, audio.duration(), 0, 1510)), (p.map(audio.currentTime(), 0, audio.duration(), 0, 255)), (p.map(audio.currentTime(), 0, audio.duration(), 0, 127)))
       p.fill(0);
+        p.strokeWeight(10);
       p.stroke(p.random(0,255),p.random(0,127),p.random(0, 255));
       p.line((p.width/2)-rms*5000,y,(p.width/2)+rms*5000,y);
       p.noFill();

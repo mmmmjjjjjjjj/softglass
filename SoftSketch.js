@@ -99,7 +99,7 @@ const twoD = function(p) {
       // if ((p.frameCount * breathSize) >= 0.1){
       //   breathSize == 0;
       // }p.frameCount * breathSize
-      p.scale(1.33, 1.33, 1.33);
+      p.scale((windowWidth/2), (windowHeight/2), 1.33);
       rotationAngle += ease(rotationAngle, rotationTarget, easing)
       p.rotateY(p.frameCount * spinAngle)
       

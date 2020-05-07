@@ -37,7 +37,7 @@ const twoD = function(p) {
       let tx = audio.currentTime() - audioTime;
       audioTime += tx * 0.05;
 
-      let red = p.map(audioTime, 0, audio.duration(), 0, 1510);
+      let red = p.map(audioTime, 0, audio.duration(), 0, 1530);
       let green = p.map(audioTime, 0, audio.duration(), 0, 255);
       let blue = p.map(audioTime, 0, audio.duration(), 0, 127);
   

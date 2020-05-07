@@ -1,18 +1,23 @@
 const twoD = function(p) {
 
     let audio
-    let reverse = false;
+    let reverse = true;
   
     let rateTarget = 1.0;
     let currentRate = 1.0;
 
     let timeClicked;
     let timeToWait = 2000;
+
+    let audioTime = 0.0;
+
+    let playing = false;
+    let reachedBufferEnd = true;
   
     p.preload = function() {
       audio = p.loadSound("assets/softSound2.mp3")
       audio.playMode('restart');
-      audio.setLoop(true);
+      // audio.setLoop(true);
     }
     p.setup = function() {
       p.createCanvas(p.windowWidth, p.windowHeight)
@@ -24,13 +29,22 @@ const twoD = function(p) {
     p.draw = function() {
       let audioDraw = audio.currentTime();
       let rms = p.analyzer.getLevel();
-      let y = (p.height / audio.currentTime())*25;
+
+      let playheadPercentage = audio.duration() / audio.currentTime();
+      let y = p.height / playheadPercentage;
       let waveform = p.fft.waveform();
+
+      let tx = audio.currentTime() - audioTime;
+      audioTime += tx * 0.05;
+
+      let red = p.map(audioTime, 0, audio.duration(), 0, 1510);
+      let green = p.map(audioTime, 0, audio.duration(), 0, 255);
+      let blue = p.map(audioTime, 0, audio.duration(), 0, 127);
   
       p.CENTER;
-      p.background((p.map(audio.currentTime(), 0, audio.duration(), 0, 1510)), (p.map(audio.currentTime(), 0, audio.duration(), 0, 255)), (p.map(audio.currentTime(), 0, audio.duration(), 0, 127)))
+      p.background(red, green, blue);
       p.fill(0);
-        p.strokeWeight(10);
+      p.strokeWeight(10);
       p.stroke(p.random(0,255),p.random(0,127),p.random(0, 255));
       p.line((p.width/2)-rms*5000,y,(p.width/2)+rms*5000,y);
       p.noFill();
@@ -45,26 +59,18 @@ const twoD = function(p) {
   
       let dx = rateTarget - currentRate;
       currentRate += dx * 0.05;
-  
-      
-  
-      if (p.millis() <= timeClicked + timeToWait){
-        //do something
-        audio.rate(p.sin(p.frameCount * 0.01));
-      }
-      if (p.millis() >= timeClicked + timeToWait){
-        audio.rate();
+
+      audio.rate(currentRate);
+
+      if (audio.currentTime() < 0.1 || audio.currentTime() > audio.duration() - 0.1){
+        reachedBufferEnd = true;
+        playing = false;
+      } else {
+        reachedBufferEnd = false;
       }
     }
   
-   
-  
     p.mousePressed = function(){
-       audio.pause()
-       audio.reverseBuffer()
-  
-      audio.play();
-  
       reverse = !reverse;
   
       if (reverse){
@@ -72,9 +78,23 @@ const twoD = function(p) {
       } else {
         rateTarget = 1.0;
       }
+
+      if (!playing && reachedBufferEnd){
+
+        if (audio.currentTime() < 0.1){
+          currentRate = 1.0;
+          rateTarget = 1.0;
+        }
+
+        if (audio.currentTime() > audio.duration() - 0.1){
+          currentRate = -1.0;
+          rateTarget = -1.0;
+        }
+
+        audio.play();
+        playing = true;
+      }
     }
-  
-    timeClicked = p.millis();
   }
   
   const threeD = function(p) {

@@ -1,19 +1,29 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
   <title>TheSOFTglass</title>
   <style>
+    div.scroll {
+      background-color: initial;
+      width: displayWidth;
+      height: 40em;
+      overflow-x: hidden;
+      overflow-y: auto;
+      text-align: left;
+      padding: 1em;
+    }
+
     * {
       box-sizing: border-box;
     }
+
     body {
       padding: 0;
       margin: 0;
-      color: lightgray;  
+      color: lightgray;
     }
 
     h1 {
@@ -22,23 +32,25 @@
       z-index: 3;
       position: relative;
     }
-    
+
     h2 {
       font-family: 'Futura', sans-serif;
       font-size: 18px;
       z-index: 3;
       position: relative;
     }
+
     p {
       font-family: 'Futura', sans-serif;
       font-size: 12px;
       z-index: 3;
       position: relative;
     }
-    a:visited{
+
+    a:visited {
       color: blue;
     }
-    
+
 
     canvas {
       position: absolute;
@@ -46,56 +58,64 @@
       left: 0;
     }
   </style>
- <script src="libraries/p5.min.js"></script>
- <script src="libraries/addons/p5.sound.min.js"></script>
- <script src="SoftSketch.js"></script>
+  <script src="libraries/p5.min.js"></script>
+  <script src="libraries/addons/p5.sound.min.js"></script>
+  <script src="SoftSketch.js"></script>
 
 </head>
 <blockquote>
-<body>
-  <h1>Hello SOFTglass</h1>
-    <p>
-    <i>Developed by Max Jaffe (MFA 1: MTIID)</i><br>
-      <br>
-    <b>The S.O.F.T. (Sonification Of Flowing Temporality) Glass is an hourglass<br>
-    that makes and manipulates sound.</b><br> <br>
-    In its final form, it will be a sculptural object that can double as<br> 
-    a musical instrument, based on the simple and enduring<br> 
-    timekeeping device dating back at least to the 16th<br>
-    century BC. Utilizing a variety of sensor types, the final<br>
-    form will be an interactive object that users can treat as a<br>
-    sound-maker or a timepiece. When treated as a<br> 
-    timepiece, the passage of time becomes marked by the<br> 
-    eventual <i>absence</i> of sound. <br><br>
-    During this difficult time, realizing this project as a<br> 
-    physical object for the attendees of CalArts Expo to play with is<br>
-    no longer feasible. I'll get there. We'll get there. But for<br> 
-    now, please enjoy this web model developed specifically<br> 
-    for Expo. <br><br>
-    
-      <i>Acknowledgements and Thank Yous:</i><br>
-    Charlie Danner<br>
-    Michael Darling<br>
-    Madeline Falcone<br>
-    Ajay Kapur<br>
-    Michael Leisz<br>
-    Andrew Piepenbrink<br>
-    Dexter Shepherd<br>
-    <br>
-    Partial funding provided by Calarts Student Union<br>
-    <br><b>
-    And most importantly, thank you to my family <br>
-    and loved ones for their endless love and support</b>
-  <br>
-  <br>
-      <a href="https://github.com/mmmmjjjjjjjj/softglass" target="_blank"><i>GitHub Repository</i></a><br />
-  <br>
-  <a href="https://soundcloud.com/maxjaffe/sets/making-meaning-audio-portfolio-2020"target="_blank"><i>Audio Portfolio</i></a><br />
-  <br>
-      <a href="https://maxjaffedrums.com/expo2020"target="_blank"><i>Expo Site</i></a><br />
-    </p>
-  <h1><i>CLICK</i> OR <i> SWIPE UP</i> TO FLIP SOFTGLASS</h1>
 
+  <body>
+    <h1>Hello SOFTglass</h1>
+    <div class="scroll">
+      <p>
+        <i>Developed by Max Jaffe (MFA 1: MTIID)</i><br>
+        <br>
+        <b>The S.O.F.T. (Sonification Of Flowing Temporality) Glass is an hourglass<br>
+          that makes and manipulates sound.</b><br> <br>
+        In its final form, it will be a sculptural object that can double as<br>
+        a musical instrument, based on the simple and enduring<br>
+        timekeeping device dating back at least to the 16th<br>
+        century BC. Utilizing a variety of sensor types, the final<br>
+        form will be an interactive object that users can treat as a<br>
+        sound-maker or a timepiece. When treated as a<br>
+        timepiece, the passage of time becomes marked by the<br>
+        eventual <i>absence</i> of sound. <br><br>
+        During this difficult time, realizing this project as a<br>
+        physical object for the attendees of CalArts Expo to play with is<br>
+        no longer feasible. I'll get there. We'll get there. But for<br>
+        now, please enjoy this web model developed specifically<br>
+        for Expo. <br><br>
+
+        <i>Acknowledgements and Thank Yous:</i><br>
+        Charlie Danner<br>
+        Michael Darling<br>
+        Madeline Falcone<br>
+        Ajay Kapur<br>
+        Michael Leisz<br>
+        Andrew Piepenbrink<br>
+        Dexter Shepherd<br>
+        <br>
+        Partial funding provided by Calarts Student Union<br>
+        <br><b>
+          And most importantly, thank you to my family <br>
+          and loved ones for their endless love and support</b>
+        <br>
+        <br>
+        <a href="https://github.com/mmmmjjjjjjjj/softglass" target="_blank"><i>GitHub Repository</i></a><br />
+        <br>
+        <a href="https://soundcloud.com/maxjaffe/sets/making-meaning-audio-portfolio-2020" target="_blank"><i>Audio
+            Portfolio</i></a><br />
+        <br>
+        <a href="https://maxjaffedrums.com/expo2020" target="_blank"><i>Expo Site</i></a><br />
+        <br>
+        <a href="demo.html">DEMO VIDEO</a>
+      </p>
+      <h1><i>CLICK</i> OR <i> SWIPE UP</i> TO FLIP SOFTGLASS</h1>
+
+
+
+    </div>
 </blockquote>
 </body>
 
